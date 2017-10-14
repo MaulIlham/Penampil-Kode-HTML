@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.schiffers.tugas2.MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get Page Element"
+        android:textSize="20dp"
+        android:textAlignment="center"
+        android:layout_marginTop="15dp"
+        android:id="@+id/textj"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pick Element"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:onClick="doSomthing"
+        android:id="@+id/btncn"
+        android:layout_below="@+id/viewp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/scrollView"
+        android:layout_below="@+id/btncn"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Page Inspected"
+            android:id="@+id/textins"
+            />
+    </ScrollView>
+
+    <Spinner
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/myspinner"
+        android:entries="@array/row"
+        android:layout_below="@+id/textj"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:layout_alignBottom="@+id/myspinner"
+        android:layout_toRightOf="@+id/myspinner"
+        android:layout_toEndOf="@+id/myspinner" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/myspinner"
+        android:background="#bbb"
+        android:id="@+id/viewp"
+        android:layout_marginTop="10dp"/>
+
+</RelativeLayout>

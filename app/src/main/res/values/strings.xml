@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Tugas 2</string>
+    <string-array name="row">
+        <item>http://</item>
+        <item>https://</item>
+    </string-array>
+</resources>
