@@ -1,5 +1,8 @@
 package com.example.schiffers.tugas2;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,19 +19,30 @@ public class MainActivity extends AppCompatActivity {
     static TextView txt1;
     private Spinner spurl;
     EditText url;
-    String txturl;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         txt1 =(TextView)findViewById(R.id.textins);
+        url=(EditText)findViewById(R.id.editText);
         spurl=(Spinner)findViewById(R.id.myspinner);
-        txturl=((EditText)findViewById(R.id.editText)).getText().toString();
 
+    }
+    public boolean isOnline(){
+        ConnectivityManager confmag=(ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo=confmag.getActiveNetworkInfo();
+        if(networkInfo!=null&&networkInfo.isConnectedOrConnecting()){
+            return true;
+        }
+        return false;
     }
 
     public void doSomthing(View view) {
-        connectAdapter = new ConnectAdapter(this);
-        connectAdapter.execute(spurl.getSelectedItem()+txturl);
+        if (isOnline()==true) {
+            connectAdapter = new ConnectAdapter(this);
+            connectAdapter.execute(spurl.getSelectedItem() + url.getText().toString());
+        }else{
+            Toast.makeText(this,"Check Your Connection",Toast.LENGTH_SHORT).show();
+        }
     }
 }
